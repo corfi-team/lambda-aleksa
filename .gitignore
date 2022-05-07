@@ -1,0 +1,5 @@
+node_modules
+.idea
+.env
+/rethinkdb_data/
+package-lock.json

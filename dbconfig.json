@@ -1,0 +1,75 @@
+{
+  "indexes": {
+    "Autoresponders": [
+      "r.table('Autoresponders').indexCreate('use', [r.row('msg'), r.row('guildid')]).run(conn).catch(() => {return false;});",
+      "r.table('Autoresponders').indexCreate('getAll', [r.row('guildid')]).run(conn).catch(() => {return false;});",
+      "r.table('Autoresponders').indexCreate('get', [r.row('arid'), r.row('guildid')]).run(conn).catch(() => {return false;});"
+    ],
+    "Tempbans": [
+      "r.table('Tempbans').indexCreate('endDate', r.row('date')('expires')).run(conn).catch(() => {return false;});",
+      "r.table('Tempbans').indexCreate('get', [r.row('userid'), r.row('guildid')]).run(conn).catch(() => {return false;});"
+    ],
+    "Tempmutes": [
+      "r.table('Tempmutes').indexCreate('endDate', r.row('date')('expires')).run(conn).catch(() => {return false;});",
+      "r.table('Tempmutes').indexCreate('get', [r.row('userid'), r.row('guildid')]).run(conn).catch(() => {return false;});"
+    ],
+    "Punishments": [
+      "r.table('Punishments').indexCreate('get', [r.row('caseid'), r.row('guildid')]).run(conn).catch(() => {return false;});",
+      "r.table('Punishments').indexCreate('history', [r.row('guildid'), r.row('userid')]).run(conn).catch(() => {return false;});",
+      "r.table('Punishments').indexCreate('getAll', [r.row('guildid')]).run(conn).catch(() => {return false;});"
+    ],
+    "Mutes": [
+      "r.table('Mutes').indexCreate('get', [r.row('guildid'), r.row('userid')]).run(conn).catch(() => {return false;})"
+    ],
+    "Guilds": [],
+    "Gbans": [],
+    "Backups": [],
+    "Reminders": [
+      "r.table('Reminders').indexCreate('getAll', [r.row('userid')]).run(conn).catch(() => {return false;})",
+      "r.table('Reminders').indexCreate('get', [r.row('userid'), r.row('remindid')]).run(conn).catch(() => {return false;})",
+      "r.table('Reminders').indexCreate('endDate', r.row('end')).run(conn).catch(() => {return false;});"
+    ],
+    "Giveaways": [
+      "r.table('Giveaways').indexCreate('get', [r.row('guildid'), r.row('messageid')]).run(conn).catch(() => {return false;})",
+      "r.table('Giveaways').indexCreate('list', [r.row('guildid')]).run(conn).catch(() => {return false;})"
+    ],
+    "Users": [],
+    "ReactionRoles": [
+      "r.db('Delover').table(\"ReactionRoles\").indexCreate('getDelete', [r.row('guildid'), r.row('messageid')]).run(conn).catch(() => {return false;})",
+      "r.db('Delover').table(\"ReactionRoles\").indexCreate('get', [r.row('guildid'), r.row('messageid'), r.row('emoji')]).run(conn).catch(() => {return false;})"
+    ],
+    "Leveling": [
+      "r.table(\"Leveling\").indexCreate('get', [r.row('guildid'), r.row('userid')]).run(conn).catch(() => {return false;})",
+      "r.table(\"Leveling\").indexCreate('getAll', [r.row('guildid')]).run(conn).catch(() => {return false;})"
+    ],
+    "Starboard": [
+      "r.table('Starboard').indexCreate('get', [r.row('guildid'), r.row('messageid')]).run(conn).catch(() => {return false;})"
+    ],
+    "Cooldowns": [
+      "r.table('Cooldowns').indexCreate('get', [r.row('userid'), r.row('key')]).run(conn).catch(() => {return false;})"
+    ],
+    "Memes": [
+      "r.table('Memes').indexCreate('get', [r.row('memeid'), r.row('guildid')]).run(conn).catch(() => {return false;});",
+      "r.table('Memes').indexCreate('list', [r.row('guildid'), r.row('userid')]).run(conn).catch(() => {return false;});",
+      "r.table('Memes').indexCreate('getAll', [r.row('guildid')]).run(conn).catch(() => {return false;});"
+    ]
+  },
+  "tables": [
+    "Autoresponders",
+    "Gbans",
+    "Mutes",
+    "Punishments",
+    "Guilds",
+    "Tempbans",
+    "Tempmutes",
+    "Giveaways",
+    "Backups",
+    "Reminders",
+    "Users",
+    "ReactionRoles",
+    "Leveling",
+    "Starboard",
+    "Cooldowns",
+    "Memes"
+  ]
+}
